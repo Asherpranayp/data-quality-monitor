@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 97%;
+        --foreground: 0 0% 9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 9%;
+        --primary: 0 0% 0%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 94%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 94%;
+        --muted-foreground: 0 0% 45%;
+        --accent: 0 0% 94%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 359 81% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --warning: 38 92% 50%;
+        --warning-foreground: 0 0% 9%;
+        --success: 142 71% 45%;
+        --success-foreground: 0 0% 100%;
+        --border: 0 0% 90%;
+        --input: 0 0% 90%;
+        --ring: 0 0% 9%;
+        --radius: 0px;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'IBM Plex Sans', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cabinet Grotesk', sans-serif;
+    }
+    code, pre, .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}
+
+/* Swiss Design System - Sharp edges */
+.card, .btn, input, select, textarea, .dialog {
+    border-radius: 0 !important;
+}
+
+/* Transitions - specific properties only */
+.transition-lift {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.transition-lift:hover {
+    transform: translateY(-2px);
+    border-color: hsl(0 0% 70%);
+}
+
+/* Dense table styling */
+.table-dense td, .table-dense th {
+    padding: 8px 12px;
+}
+
+/* Severity colors */
+.severity-critical {
+    @apply bg-red-50 text-red-700 border-red-200;
+}
+
+.severity-high {
+    @apply bg-orange-50 text-orange-700 border-orange-200;
+}
+
+.severity-medium {
+    @apply bg-yellow-50 text-yellow-700 border-yellow-200;
+}
+
+.severity-low {
+    @apply bg-blue-50 text-blue-700 border-blue-200;
+}
+
+/* Status colors */
+.status-completed {
+    @apply bg-green-50 text-green-700;
+}
+
+.status-running {
+    @apply bg-blue-50 text-blue-700;
+}
+
+.status-pending {
+    @apply bg-gray-50 text-gray-700;
+}
+
+.status-failed {
+    @apply bg-red-50 text-red-700;
+}
+
+/* Quality score gradient */
+.quality-excellent {
+    @apply text-green-600;
+}
+
+.quality-good {
+    @apply text-emerald-600;
+}
+
+.quality-moderate {
+    @apply text-yellow-600;
+}
+
+.quality-poor {
+    @apply text-orange-600;
+}
+
+.quality-critical {
+    @apply text-red-600;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(0 0% 94%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 70%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(0 0% 50%);
+}
+
+/* Upload dropzone */
+.dropzone {
+    @apply border-2 border-dashed border-gray-300 bg-gray-50 transition-all duration-200;
+}
+
+.dropzone:hover, .dropzone.drag-over {
+    @apply border-gray-400 bg-gray-100;
+}
+
+/* Animate pulse for running status */
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.animate-pulse-dot {
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
