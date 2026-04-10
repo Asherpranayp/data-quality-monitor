@@ -55,9 +55,15 @@ export default function UploadDatasetModal({ open, onClose, onSuccess }) {
       formData.append("description", description);
 
       if (primaryKeyColumns.trim()) {
-        const pkCols = primaryKeyColumns.split(",").map((c) => c.trim());
-        formData.append("primary_key_columns", JSON.stringify(pkCols));
-      }
+  const pkCols = primaryKeyColumns
+    .split(",")
+    .map((c) => c.trim())
+    .filter(Boolean);
+
+  pkCols.forEach((col) => {
+    formData.append("primary_key_columns", col);
+  });
+}
 
       const dataset = await uploadDataset(formData);
       toast.success(`Dataset "${dataset.name}" uploaded successfully`);

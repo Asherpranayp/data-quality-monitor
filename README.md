@@ -52,7 +52,7 @@ A production-ready data quality monitoring system built with FastAPI, PostgreSQL
 1. Clone the repository
 2. Create `.env` file in root directory:
    ```
-   EMERGENT_LLM_KEY=your_openai_api_key
+   OPENAI_API_KEY=your_openai_api_key
    ```
 
 3. Start all services:

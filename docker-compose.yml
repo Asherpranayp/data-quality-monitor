@@ -28,7 +28,7 @@ services:
     environment:
       - DATABASE_URL=postgresql+asyncpg://dataquality:dataquality123@postgres:5432/dataquality_db
       - CORS_ORIGINS=http://localhost:3000
-      - EMERGENT_LLM_KEY=${EMERGENT_LLM_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     depends_on:
       postgres:
         condition: service_healthy
